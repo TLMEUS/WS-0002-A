@@ -1,0 +1,16 @@
+# This file contains the public/.htaccess for project WS-0002-A.
+#
+# File information:
+# Project Name: WS-0002-A
+# Module Name: public
+# File Name: .htaccess
+# File Author: Troy L. Marker
+# Language: Apache Configuration Settings
+#
+# File Copyright: 01/2024
+
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^ index.php

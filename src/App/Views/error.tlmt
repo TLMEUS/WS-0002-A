@@ -1,0 +1,15 @@
+{% extends "blank.tlmt" %}
+{% block title %}{% yield title %}{% endblock %}
+{% block body %}
+    <div class="w3-row">
+        <div class="w3-third w3-center">
+            &nbsp;
+        </div>
+        <div class="w3-third w3-center">
+            <h3>Error {{ errorcode }}: {{ message }} </h3>
+            <button class="w3-btn w3-red w3-text-white w3-round-xxlarge" style="align-content: center" onclick="history.back()">GO BACK</button>
+        </div>
+        <div class="w3-third w3-center">
+        </div>
+    </div>
+{% endblock %}

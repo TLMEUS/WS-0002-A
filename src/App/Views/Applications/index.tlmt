@@ -1,0 +1,28 @@
+{% extends "layout.tlmt" %}
+{% block title %}{% echo $_ENV['NAME'] %} Application List{% endblock %}
+{% block body %}
+    <div class="w3-container">
+        <h1>System Application List
+            <a href="/applications/create"><i class="material-icons w3-text-red">add_circle_outline</i></a>
+        </h1>
+        <table class="w3-table-all">
+            <tr>
+                <th>ID</th>
+                <th>Application</th>
+                <th>SubDomain</th>
+                <th>Options</th>
+            </tr>
+            {% foreach ($applications as $application): %}
+                <tr>
+                    <td>{{ application['colId'] }}</td>
+                    <td>{{ application['colName'] }}</td>
+                    <td>{{ application['colDomain'] }}</td>
+                    <td>
+                        <a href="/applications/update/{{ application['colId'] }}"><i class="material-icons w3-text-red">update</i></a>
+                        <a href="/applications/delete/{{ application['colId'] }}"><i class="material-icons w3-text-red">delete</i></a>
+                    </td>
+                </tr>
+            {% endforeach; %}
+        </table>
+    </div>
+{% endblock %}

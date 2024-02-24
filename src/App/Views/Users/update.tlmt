@@ -1,0 +1,38 @@
+{% extends "layout.tlmt" %}
+{% block title %}{% echo $_ENV['NAME'] %} User List<br />Update User Information{% endblock %}
+{% block body %}
+    <div class="w3-container">
+        <h1>Update information for user: {{ user["colUName"] }}.</h1>
+    </div>
+    <div class="w3-row">
+        <div class="w3-third">
+            <div class="w3-container"></div>
+        </div>
+        <div class="w3-third w3-center">
+            <form action="/users/updateUser" method="post">
+                <input type="hidden" name="colId" id="colId" value="{{ user['colId'] }}">
+                <select name="colDepartment" id="colDepartment" style="width: 100%">
+                    {% foreach ($departments as $department): %}
+                        <option value="{{ department['colId'] }}"
+                        {% if ($department['colName'] == $user['colDname']): %}
+                            selected="selected"
+                        {% endif; %}
+                        >{{ department['colName'] }}</option>
+                    {% endforeach; %}
+                </select><br />
+                <label for="colDepartment">Department</label><br />
+                <select name="colRole" id="colRole" style="width: 100%">
+                    {% foreach ($roles as $role): %}
+                        <option value="{{ role['colId'] }}"
+                            {% if ($role['colName'] == $user['colRname']): %}
+                                selected="selected"
+                            {% endif %}
+                        >{{ role['colName'] }}</option>
+                    {% endforeach; %}
+                </select><br />
+                <label for="colRole">Role</label><br />
+                <input class="w3-button w3-blue w3-round-xlarge" style="width: 100%" type="submit" value="Update">
+            </form>
+        </div>
+    </div>
+{% endblock %}

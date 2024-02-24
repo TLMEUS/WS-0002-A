@@ -1,0 +1,36 @@
+{% extends "layout.tlmt" %}
+{% block title %}{% echo $_ENV['NAME'] %} User Access List{% endblock %}
+{% block body %}
+    <div class="w3-container">
+        <h1>User Access List
+            <a href="/useraccess/create"><i class="material-icons w3-text-red">add_circle_outline</i></a>
+        </h1>
+        <table class="w3-table-all">
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Application</th>
+                <th>Access Allowed</th>
+                <th>Options</th>
+            </tr>
+            {% foreach ($accesslist as $user): %}
+                <tr>
+                    <td>{{ user['colId'] }}</td>
+                    <td>{{ user['colUname'] }}</td>
+                    <td>{{ user['colAname'] }}</td>
+                    <td>{% if($user['colAccess'] == 0): %}
+                            Write Access
+                        {% elseif ($user['colAccess'] == 1): %}
+                            Read Access
+                        {% elseif ($user['colAccess'] == 2): %}
+                            Deny Access
+                        {% endif; %}
+                    <td>
+                        <a href="/useraccess/update/{{ user['colId'] }}"><i class="material-icons w3-text-red">update</i></a>
+                        <a href="/useraccess/delete/{{ user['colId'] }}"><i class="material-icons w3-text-red">delete</i></a>
+                    </td>
+                </tr>
+            {% endforeach; %}
+        </table>
+    </div>
+{% endblock %}

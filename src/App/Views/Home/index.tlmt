@@ -1,0 +1,25 @@
+{% extends "layout.tlmt" %}
+{% block title %}{% echo $_ENV['NAME'] %} User Manager{% endblock %}
+{% block body %}
+<p>This application allows a system manager to maintain the user database. The different functions of the application are linked above and described below.</p>
+    <ul class="w3-ul w3-small">
+        <li>
+            <dt><i><b>Departments</b></i></dt><dd>This function allows you to add the different departments your employees can be assigned to.</dd>
+        </li>
+        <li>
+            <dt><i><b>Roles</b></i></dt><dd>This function allows you to create the different role each employee can be assigned to in the department.</dd>
+        </li>
+        <li>
+            <dt><i><b>Users</b></i></dt><dd>This function allows you to create and maintain the actual users you wish to have access to the system.</dd>
+        </li>
+        <li>
+            <dt><i><b>Applications</b></i></dt><dd>This function allows you to create and edit a list of applications used by the system.</dd>
+        </li>
+        <li>
+            <dt><i><b>Role Access</b></i></dt><dd>This function allows you to set access to application based on the users assigned role.</dd>
+        </li>
+        <li>
+            <dt><i><b>User Access</b></i></dt><dd>This function allows you to set access to application based on the username.</dd>
+        </li>
+    </ul>
+{% endblock %}

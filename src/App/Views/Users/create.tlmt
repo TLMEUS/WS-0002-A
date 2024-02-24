@@ -1,0 +1,32 @@
+{% extends "layout.tlmt" %}
+{% block title %}{% echo $_ENV['NAME'] %} User List<br />Create User{% endblock %}
+{% block body %}
+    <div class="w3-container">
+        <h1>New User Information</h1>
+    </div>
+    <div class="w3-row">
+        <div class="w3-third">
+            <div class="w3-container"></div>
+        </div>
+        <div class="w3-third w3-center">
+            <form action="/users/createUser" method="post">
+                <label for="colName"></label><input class="w3-input" type="text" name="colName" id="colName">
+                <label>Username</label><br />
+                <input type="hidden" name="colPassword" id="colPassword" value="NewHire">
+                <select name="colDepartment" id="colDepartment" style="width: 100%">
+                    {% foreach ($departments as $department): %}
+                        <option value="{{ department["colId"] }}">{{ department["colName"] }}</option>
+                    {% endforeach; %}
+                </select><br />
+                <label for="colDepartment">Department</label><br />
+                <select name="colRole" id="colRole" style="width: 100%">
+                    {% foreach ($roles as $role): %}
+                        <option value="{{ role["colId"] }}">{{ role["colName"] }}</option>
+                    {% endforeach; %}
+                </select><br />
+                <label for="colRole">Role</label><br />
+                <input class="w3-button w3-blue w3-round-xlarge" style="width: 100%" type="submit" value="Create">
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "layout.tlmt" %}
+{% block title %}{% echo $_ENV['NAME'] %} Application List<br />Create Application{% endblock %}
+{% block body %}
+    <div class="w3-container">
+        <h4>
+            Add a new application to the database.
+            <a href="#" onclick="history.back()"><i class="material-icons w3-text-red">subdirectory_arrow_left</i></a>
+        </h4>
+    </div>
+    <div class="w3-row">
+        <div class="w3-third">
+            <div class="w3-container"></div>
+        </div>
+        <div class="w3-third w3-center">
+            <form action="/applications/createApplication" method="POST">
+                <input class="w3-input" type="text" name="colName" id="colName">
+                <label for="colName">Application</label><br />
+                <input class="w3-input" type="text" name="colDomain" id="colDomain">
+                <label for="colDomain">Application SubDomain</label><br />
+                <input class="w3-button w3-blue w3-round-xlarge" type="submit" value="Create">
+            </form>
+        </div>
+    </div>
+{% endblock %}

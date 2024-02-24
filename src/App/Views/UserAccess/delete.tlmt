@@ -1,0 +1,23 @@
+{% extends "layout.tlmt" %}
+{% block title %}{% echo $_ENV['NAME'] %} User Access List<br />Delete User Access Record{% endblock %}
+{% block body %}
+    <div class="w3-container">
+        <h4>
+            Remove access to {{ colApplication }} from {{ colName }}?
+        </h4>
+    </div>
+    <div class="w3-row">
+        <div class="w3-third">
+            <div class="w3-container"></div>
+        </div>
+        <div class="w3-third w3-center">
+            <form action="/UserAccess/deleteRecord" method="post">
+                <input name="colId" id="colId" type="hidden" value="{{ colId }}">
+                <label>
+                    <input class="w3-button w3-green w3-round-xlarge" style="width: 150px;" onclick="history.back()" value="No">
+                </label>
+                <input class="w3-button w3-red w3-round-xlarge" style="width: 150px;" type="submit" value="Yes">
+            </form>
+        </div>
+    </div>
+{% endblock %}

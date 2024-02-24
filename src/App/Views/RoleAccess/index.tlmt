@@ -1,0 +1,38 @@
+{% extends "layout.tlmt" %}
+{% block title %}{% echo $_ENV['NAME'] %} Role Access List{% endblock %}
+{% block body %}
+    <div class="w3-container">
+        <h1>Role Access List
+            <a href="/roleaccess/create"><i class="material-icons w3-text-red">add_circle_outline</i></a>
+        </h1>
+        <table class="w3-table-all">
+            <tr>
+                <th>ID</th>
+                <th>Department</th>
+                <th>Role</th>
+                <th>Application</th>
+                <th>Access Allowed</th>
+                <th>Options</th>
+            </tr>
+            {% foreach ($accesslist as $role): %}
+                <tr>
+                    <td>{{ role['colId'] }}</td>
+                    <td>{{ role['colDname'] }}</td>
+                    <td>{{ role['colRname'] }}</td>
+                    <td>{{ role['colAname'] }}</td>
+                    <td>{% if($role['colAccess'] == 0): %}
+                            Write Access
+                        {% elseif ($role['colAccess'] == 1): %}
+                            Read Access
+                        {% elseif ($role['colAccess'] == 2): %}
+                            Deny Access
+                        {% endif; %}
+                    <td>
+                        <a href="/roleaccess/update/{{ role['colId'] }}"><i class="material-icons w3-text-red">update</i></a>
+                        <a href="/roleaccess/delete/{{ role['colId'] }}"><i class="material-icons w3-text-red">delete</i></a>
+                    </td>
+                </tr>
+            {% endforeach; %}
+        </table>
+    </div>
+{% endblock %}

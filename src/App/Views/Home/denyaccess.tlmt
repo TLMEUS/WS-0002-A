@@ -1,0 +1,16 @@
+{% extends "layout.tlmt" %}
+{% block title %}Access Denied{% endblock %}
+{% block body %}
+    <div class="w3-row">
+        <div class="w3-third">
+            <div class="w3-container"></div>
+        </div>
+        <div class="w3-third w3-center">
+            <div class="w3-container">
+                <p>Access to this page requires a higher access level.</p>
+            </div>
+        </div>
+        <div class="w3-third">
+        </div>
+    </div>
+{% endblock %}

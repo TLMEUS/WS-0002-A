@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/assets/css/w3.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+        <title>{% yield title %}</title>
+    </head>
+    <body>
+        <div class="w3-container w3-center">
+            <div class="w3-panel w3-blue w3-round-xlarge w3-padding">
+                <h3>{% yield title %}</h3>
+                <div class="w3-container">
+                    <a href="/departments/index" class="w3-btn w3-white w3-text-blue w3-round-xxlarge">Departments</a>
+                    <a href="/roles/index" class="w3-btn w3-white w3-text-blue w3-round-xxlarge">Roles</a>
+                    <a href="/users/index" class="w3-btn w3-white w3-text-blue w3-round-xxlarge">Users</a>
+                    <a href="/applications/index" class="w3-btn w3-white w3-text-blue w3-round-xxlarge">Applications</a>
+                    <a href="/roleaccess/index" class="w3-btn w3-white w3-text-blue w3-round-xxlarge">Role Access</a>
+                    <a href="/useraccess/index" class="w3-btn w3-white w3-text-blue w3-round-xxlarge">User Access</a>
+                </div>
+            </div>
+        </div>
+        {% yield body %}
+        <div class="w3-container">
+            <div class="w3-panel w3-blue w3-round-xlarge">
+                <div class="w3-container w3-center">
+                    <p>Copyright 2023 By Troy L. Marker Enterprises. All Rights Reserved</p>
+                    <p>Powered by W3.CSS and WS-0000-A</p>
+                </div>
+                <div class="w3-container">
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

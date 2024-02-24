@@ -1,0 +1,30 @@
+{% extends "layout.tlmt" %}
+{% block title %}{% echo $_ENV['NAME'] %} User Departments{% endblock %}
+{% block body %}
+    <div class="w3-container">
+        <h1>User Department List
+            {% if ($_ENV['colAccess'] == 0): %}
+                <a href="/departments/create"><i class="material-icons w3-text-red">add_circle_outline</i></a>
+            {% endif %}
+        </h1>
+        <table class="w3-table-all">
+            <tr>
+                <th>ID</th>
+                <th>Department</th>
+                <th>Options</th>
+            </tr>
+            {% foreach ($departments as $department): %}
+                <tr>
+                    <td>{{ department["colId"] }}</td>
+                    <td>{{ department["colName"] }}</td>
+                    <td>
+                        {% if ($_ENV['colAccess'] == 0): %}
+                            <a href="/departments/update/{{ department["colId"] }}"><i class="material-icons w3-text-red">update</i></a>
+                            <a href="/departments/delete/{{ department["colId"] }}"><i class="material-icons w3-text-red">delete</i></a>
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endforeach; %}
+        </table>
+    </div>
+{% endblock %}

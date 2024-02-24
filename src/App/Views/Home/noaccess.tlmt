@@ -1,0 +1,16 @@
+{% extends "blank.tlmt" %}
+{% block title %}No Access{% endblock %}
+{% block body %}
+    <div class="w3-row">
+        <div class="w3-third">
+            <div class="w3-container"></div>
+        </div>
+        <div class="w3-third w3-center">
+            <div class="w3-container">
+                <p>Access to the root page is not permitted.</p>
+            </div>
+        </div>
+        <div class="w3-third">
+        </div>
+    </div>
+{% endblock %}

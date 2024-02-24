@@ -1,0 +1,33 @@
+{% extends "layout.tlmt" %}
+{% block title %}{% echo $_ENV['NAME'] %} Role Access List<br /> Role Access List<br />Update Role Access Record{% endblock %}
+{% block body %}
+    <div class="w3-container">
+        <h4>
+            Select new access to {{ colApplication }} for the {{ colRole }} role of the {{ colDepartment }} department.
+            <a href="#" onclick="history.back()"><i class="material-icons w3-text-red">subdirectory_arrow_left</i></a>
+        </h4>
+    </div>
+    <div class="w3-row">
+        <div class="w3-third">
+            <div class="w3-container"></div>
+        </div>
+        <div class="w3-third w3-center">
+            <form action="/roleaccess/updateroleaccess" method="post">
+                <input name="colId" id="colId" type="hidden" value="{{ colId }}">
+                <select name="colAccess" id="colAccess" style="width: 100%">
+                    {% if($colAccess != 0): %}
+                        <option value="0">Write Access</option>
+                    {% endif; %}
+                    {% if($colAccess != 1): %}
+                        <option value="1">Read Access</option>
+                    {% endif; %}
+                    {% if($colAccess != 2): %}
+                        <option value="2">Deny Access</option>
+                    {% endif; %}
+                </select><br />
+                <label for="colApplications">New Access Allowed</label><br /><br />
+                <input class="w3-button w3-blue w3-round-xlarge" type="submit" value="Update">
+            </form>
+        </div>
+    </div>
+{% endblock %}

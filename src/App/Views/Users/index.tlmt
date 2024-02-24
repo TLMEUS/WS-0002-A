@@ -1,0 +1,30 @@
+{% extends "layout.tlmt" %}
+{% block title %}{% echo $_ENV['NAME'] %} User List{% endblock %}
+{% block body %}
+    <div class="w3-container">
+        <h1>User List
+            <a href="/users/create"><i class="material-icons w3-text-red">add_circle_outline</i></a>
+        </h1>
+        <table class="w3-table-all">
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Department</th>
+                <th>Role</th>
+                <th>Options</th>
+            </tr>
+            {% foreach ($users as $user): %}
+                <tr>
+                    <td>{{ user["colId"] }}</td>
+                    <td>{{ user["colUName"] }}</td>
+                    <td>{{ user["colDname"] }}</td>
+                    <td>{{ user["colRname"] }}</td>
+                    <td>
+                        <a href="/users/update/{{ user["colId"] }}"><i class="material-icons w3-text-red">update</i></a>
+                        <a href="/users/delete/{{ user["colId"] }}"><i class="material-icons w3-text-red">delete</i></a>
+                    </td>
+                </tr>
+            {% endforeach; %}
+        </table>
+    </div>
+{% endblock %}

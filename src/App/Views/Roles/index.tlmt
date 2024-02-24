@@ -1,0 +1,26 @@
+{% extends "layout.tlmt" %}
+{% block title %}{% echo $_ENV['NAME'] %} User Roles{% endblock %}
+{% block body %}
+    <div class="w3-container">
+        <h1>User Role List
+            <a href="/roles/create"><i class="material-icons w3-text-red">add_circle_outline</i></a>
+        </h1>
+        <table class="w3-table-all">
+            <tr>
+                <th>ID</th>
+                <th>Role</th>
+                <th>Options</th>
+            </tr>
+            {% foreach ($roles as $role): %}
+                <tr>
+                    <td>{{ role["colId"] }}</td>
+                    <td>{{ role["colName"] }}</td>
+                    <td>
+                        <a href="/roles/update/{{ role["colId"] }}"><i class="material-icons w3-text-red">update</i></a>
+                        <a href="/roles/delete/{{ role["colId"] }}"><i class="material-icons w3-text-red">delete</i></a>
+                    </td>
+                </tr>
+            {% endforeach; %}
+        </table>
+    </div>
+{% endblock %}

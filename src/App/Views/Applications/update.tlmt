@@ -1,0 +1,25 @@
+{% extends "layout.tlmt" %}
+{% block title %}{% echo $_ENV['NAME'] %} Application List<br />Update Application{% endblock %}
+{% block body %}
+    <div class="w3-container">
+        <h4>
+            Enter the new application name.
+            <a href="#" onclick="history.back()"><i class="material-icons w3-text-red">subdirectory_arrow_left</i></a>
+        </h4>
+    </div>
+    <div class="w3-row">
+        <div class="w3-third">
+            <div class="w3-container"></div>
+        </div>
+        <div class="w3-third w3-center">
+            <form action="/applications/updateApplication" method="post">
+                <input name="colId" id="colId" type="hidden" value="{{ colId }}">
+                <label for="colName"></label><input class="w3-input" type="text" name="colName" id="colName" value="{{ colName }}">
+                <label>New Application Name</label><br/><br/>
+                <label for="colDomain"></label><input class="w3-input" type="text" name="colDomain" id="colDomain" value="{{ colDomain }}">
+                <label>New SubDomain</label><br /><br />
+                <input class="w3-button w3-blue w3-round-xlarge" type="submit" value="Update">
+            </form>
+        </div>
+    </div>
+{% endblock %}

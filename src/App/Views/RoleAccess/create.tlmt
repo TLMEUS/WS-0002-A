@@ -1,0 +1,44 @@
+{% extends "layout.tlmt" %}
+{% block title %}{% echo $_ENV['NAME'] %} Role Access List<br />Create Role Access Record{% endblock %}
+{% block body %}
+    <div class="w3-container">
+        <h4>
+            Add a new role access record to the database.
+            <a href="#" onclick="history.back()"><i class="material-icons w3-text-red">subdirectory_arrow_left</i></a>
+        </h4>
+    </div>
+    <div class="w3-row">
+        <div class="w3-third">
+            <div class="w3-container"></div>
+        </div>
+        <div class="w3-third w3-center">
+            <form action="/roleaccess/createRoleAccess" method="post">
+                <select name="colDepartment" id="colDepartment" style="width: 100%">
+                    {% foreach ($departments as $department): %}
+                        <option value="{{ department["colId"] }}">{{ department["colName"] }}</option>
+                    {% endforeach; %}
+                </select><br />
+                <label for="colDepartment">Department</label><br /><br />
+                <select name="colRole" id="colRole" style="width: 100%">
+                    {% foreach ($roles as $role): %}
+                        <option value="{{ role['colId'] }}">{{ role['colName'] }}</option>
+                     {% endforeach; %}
+                </select><br />
+                <label for="colRole">Role</label><br /><br />
+                <select name="colApplication" id="colApplication" style="width: 100%">
+                    {% foreach ($applications as $application): %}
+                        <option value="{{ application['colId'] }}">{{ application['colName'] }}</option>
+                     {% endforeach; %}
+                </select><br />
+                <label for="colApplication">Application</label><br /><br />
+                <select name="colAccess" id="colAccess" style="width: 100%">
+                    <option value="0">Write Access</option>
+                    <option value="1">Read Access</option>
+                    <option value="2">Deny Access</option>
+                </select><br />
+                <label for="colApplications">Access Allowed</label><br /><br />
+                <input class="w3-button w3-blue w3-round-xlarge" type="submit" value="Create">
+            </form>
+        </div>
+    </div>
+{% endblock %}
